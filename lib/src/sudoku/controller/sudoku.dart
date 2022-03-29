@@ -5,14 +5,15 @@ import 'package:flutter/material.dart' show ChangeNotifier;
 part 'hash.dart';
 part 'base_hash.dart';
 
-class Sudoku extends ChangeNotifier implements BaseHash<int> {
-  static final blank = Sudoku.byColumns(
-    first: [Hash.zeros(), Hash.zeros(), Hash.zeros()],
-    second: [Hash.zeros(), Hash.zeros(), Hash.zeros()],
-    third: [Hash.zeros(), Hash.zeros(), Hash.zeros()],
-  );
+class SudokuPositionController extends ChangeNotifier implements BaseHash<int> {
+  static SudokuPositionController get blank =>
+      SudokuPositionController.byColumns(
+        first: [Hash.zeros, Hash.zeros, Hash.zeros],
+        second: [Hash.zeros, Hash.zeros, Hash.zeros],
+        third: [Hash.zeros, Hash.zeros, Hash.zeros],
+      );
 
-  Sudoku(
+  SudokuPositionController(
     Hash<int> first,
     Hash<int> second,
     Hash<int> third,
@@ -36,7 +37,7 @@ class Sudoku extends ChangeNotifier implements BaseHash<int> {
 
   final Hash<Hash<int>> _board;
 
-  factory Sudoku.byRows({
+  factory SudokuPositionController.byRows({
     required List<Hash<int>> first,
     required List<Hash<int>> second,
     required List<Hash<int>> third,
@@ -44,7 +45,7 @@ class Sudoku extends ChangeNotifier implements BaseHash<int> {
     assert(first.length == 3);
     assert(second.length == 3);
     assert(third.length == 3);
-    return Sudoku(
+    return SudokuPositionController(
       first[0],
       first[1],
       first[2],
@@ -57,7 +58,7 @@ class Sudoku extends ChangeNotifier implements BaseHash<int> {
     );
   }
 
-  factory Sudoku.byColumns({
+  factory SudokuPositionController.byColumns({
     required List<Hash<int>> first,
     required List<Hash<int>> second,
     required List<Hash<int>> third,
@@ -65,7 +66,7 @@ class Sudoku extends ChangeNotifier implements BaseHash<int> {
     assert(first.length == 3);
     assert(second.length == 3);
     assert(third.length == 3);
-    return Sudoku(
+    return SudokuPositionController(
       first[0],
       second[0],
       third[0],

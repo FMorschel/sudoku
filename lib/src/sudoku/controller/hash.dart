@@ -3,7 +3,7 @@ part of 'sudoku.dart';
 class Hash<E> implements BaseHash<E> {
   static const _zeros = [0, 0, 0];
   
-  static Hash<int> zeros() => Hash<int>.byColumns(
+  static Hash<int> get zeros => Hash<int>.byColumns(
     first: _zeros,
     second: _zeros,
     third: _zeros,
