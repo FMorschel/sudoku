@@ -9,14 +9,16 @@ class SudokuBoard extends StatefulWidget {
   const SudokuBoard({
     Key? key,
     required this.sudoku,
+    this.selectedColor,
     this.itemBuilder,
     this.onTapIndex,
-    this.selectedColor,
+    this.border,
   }) : super(key: key);
 
   final SudokuPositionController sudoku;
   final IndexedWidgetBuilder? itemBuilder;
   final void Function(int index)? onTapIndex;
+  final BoxBorder? border;
   final Color? selectedColor;
 
   @override
@@ -55,10 +57,13 @@ class _SudokuBoardState extends State<SudokuBoard> {
                               selectedColor: index == selectedIndex
                                   ? widget.selectedColor
                                   : null,
+                              border:
+                                  index == selectedIndex ? widget.border : null,
                               onTap: () {
                                 selectedIndex = index;
                                 widget.onTapIndex?.call(index);
                               },
+                              isSelected: index == selectedIndex,
                               child: FittedBox(
                                 fit: BoxFit.contain,
                                 child:
