@@ -7,12 +7,12 @@ import '../controller/sudoku.dart';
 
 class SudokuBoard extends StatefulWidget {
   const SudokuBoard({
-    Key? key,
     required this.sudoku,
     this.selectedColor,
     this.itemBuilder,
     this.onTapIndex,
     this.border,
+    Key? key,
   }) : super(key: key);
 
   final SudokuPositionController sudoku;
@@ -49,7 +49,7 @@ class _SudokuBoardState extends State<SudokuBoard> {
                       const VerticalDivider(),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: AnimatedBuilder(
                           animation: widget.sudoku,
                           builder: (context, child) {

@@ -6,13 +6,6 @@ part 'hash.dart';
 part 'base_hash.dart';
 
 class SudokuPositionController extends ChangeNotifier implements BaseHash<int> {
-  static SudokuPositionController get blank =>
-      SudokuPositionController.byColumns(
-        first: [Hash.zeros, Hash.zeros, Hash.zeros],
-        second: [Hash.zeros, Hash.zeros, Hash.zeros],
-        third: [Hash.zeros, Hash.zeros, Hash.zeros],
-      );
-
   SudokuPositionController(
     Hash<int> first,
     Hash<int> second,
@@ -34,8 +27,6 @@ class SudokuPositionController extends ChangeNotifier implements BaseHash<int> {
           eighth,
           nineth,
         );
-
-  final Hash<Hash<int>> _board;
 
   factory SudokuPositionController.byRows({
     required List<Hash<int>> first,
@@ -78,6 +69,15 @@ class SudokuPositionController extends ChangeNotifier implements BaseHash<int> {
       third[2],
     );
   }
+
+  static SudokuPositionController get blank =>
+      SudokuPositionController.byColumns(
+        first: [Hash.zeros, Hash.zeros, Hash.zeros],
+        second: [Hash.zeros, Hash.zeros, Hash.zeros],
+        third: [Hash.zeros, Hash.zeros, Hash.zeros],
+      );
+
+  final Hash<Hash<int>> _board;
 
   @override
   List<int> column(int index) {

@@ -3,10 +3,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Link extends StatefulWidget {
   const Link({
-    Key? key,
-    this.style,
     required this.text,
     required this.link,
+    this.style,
+    Key? key,
   }) : super(key: key);
 
   final TextStyle? style;
@@ -84,7 +84,7 @@ class _LinkState extends State<Link> {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: ValueListenableBuilder<bool>(
               valueListenable: controller,
               builder: (context, hovering, _) {

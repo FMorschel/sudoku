@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 4,
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: SudokuBoard(
                       sudoku: sudoku,
                       onTapIndex: (index) => sudoku[index]++,
@@ -86,9 +86,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Control extends StatefulWidget {
   const Control({
-    Key? key,
     required this.direction,
     this.border,
+    Key? key,
   }) : super(key: key);
 
   final BoxBorder? border;
@@ -114,7 +114,7 @@ class _ControlState extends State<Control> {
                     ? constraints.maxHeight / 5
                     : constraints.maxWidth / 5,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8),
                   child: NeumorphismButton(
                     border: widget.border,
                     child: FittedBox(
@@ -129,7 +129,7 @@ class _ControlState extends State<Control> {
                   ? constraints.maxHeight / 5
                   : constraints.maxWidth / 5,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: NeumorphismButton(
                   border: widget.border,
                   child: FittedBox(fit: BoxFit.contain, child: Image.asset('')),

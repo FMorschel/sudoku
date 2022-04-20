@@ -1,14 +1,6 @@
 part of 'sudoku.dart';
 
 class Hash<E> implements BaseHash<E> {
-  static const _zeros = [0, 0, 0];
-  
-  static Hash<int> get zeros => Hash<int>.byColumns(
-    first: _zeros,
-    second: _zeros,
-    third: _zeros,
-  );
-
   Hash(
     final E first,
     final E second,
@@ -50,6 +42,14 @@ class Hash<E> implements BaseHash<E> {
   }
 
   const Hash._(final List<List<E>> list) : _list = list;
+
+  static Hash<int> get zeros => Hash<int>.byColumns(
+    first: _zeros,
+    second: _zeros,
+    third: _zeros,
+  );
+
+  static const _zeros = [0, 0, 0];
 
   final List<List<E>> _list;
 
