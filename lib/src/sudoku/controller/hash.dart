@@ -44,10 +44,10 @@ class Hash<E> implements BaseHash<E> {
   const Hash._(final List<List<E>> list) : _list = list;
 
   static Hash<int> get zeros => Hash<int>.byColumns(
-    first: _zeros,
-    second: _zeros,
-    third: _zeros,
-  );
+        first: _zeros,
+        second: _zeros,
+        third: _zeros,
+      );
 
   static const _zeros = [0, 0, 0];
 
@@ -56,17 +56,17 @@ class Hash<E> implements BaseHash<E> {
   @override
   List<E> column(int index) {
     assert((index >= 0) && (index < length));
-    return _list[index];
-  }
-
-  @override
-  List<E> row(int index) {
-    assert((index >= 0) && (index < length));
     return [
       _list[0][index],
       _list[1][index],
       _list[2][index],
     ];
+  }
+
+  @override
+  List<E> row(int index) {
+    assert((index >= 0) && (index < length));
+    return _list[index];
   }
 
   @override
